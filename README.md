@@ -12,5 +12,4 @@ Everything I learn and practice will be published here.
 
 ## Contributions
 
-Contributions and advice are welcome.  
-If you have suggestions, improvements, or additional examples, please open an issue or a pull request.
+Contributions and advice are welcome ;)
