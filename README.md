@@ -12,4 +12,4 @@ Everything I learn and practice will be published here.
 
 ## Contributions
 
-Contributions and advice are welcome ;)
+Contributions and advice are welcomed ;)
