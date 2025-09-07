@@ -21,8 +21,6 @@ The purpose of this lab is to establish a controlled environment for experimenti
 - **Storage**: 512 GB NVMe SSD  
 - **Graphics**: NVIDIA RTX 2000 Ada Generation  
 
-\* Specifications may vary depending on ZBook configuration.  
-
 ### 2.3 Virtualization Stack
 - **Primary**:  
   - KVM (Kernel-based Virtual Machine)  
