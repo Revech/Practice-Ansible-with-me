@@ -52,10 +52,13 @@ These issues occur because VMware’s kernel drivers are **out-of-tree** (not sh
 
 - **Kernel Modules**  
   VMware Workstation requires two modules to function:  
-  - `vmmon` → virtualization hooks for guest execution.  
-  - `vmnet` → virtual networking between host, guest, and external networks.  
+  - `vmmon` → virtualization hooks for guest execution (interacts with CPU virtualization extensions to safely run guest code).  
+  - `vmnet` → virtual networking between host, guest, and external networks (creates vmnet devices and enables NAT/bridged networking).  
 
-  Without these modules, VMware cannot start VMs.  
+  These modules must compile cleanly against the running kernel.  
+  - If `vmmon` fails → VMware cannot start any VMs (no execution engine).  
+  - If `vmnet` fails → VMs start but lack networking.  
+  - If both fail → VMware is completely unusable.  
 
 ---
 
@@ -63,8 +66,8 @@ These issues occur because VMware’s kernel drivers are **out-of-tree** (not sh
 - VMware’s drivers are **not part of the Linux kernel**.  
 - Fedora introduced changes in kernel 6.15/6.16:  
   - New definitions (`MAX`) conflict with VMware’s code.  
-  - Old functions (`init_module()`) were removed.  
-- VMware has not yet updated its modules, leading to build errors.  
+  - Old functions (`init_module()`) were removed and replaced with `module_init()`.  
+- Because VMware’s code is not updated in sync, compilation fails, breaking `vmmon` and `vmnet`.  
 
 ---
 
